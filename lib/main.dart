@@ -1,9 +1,8 @@
 import 'dart:ffi';
 
-
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -13,7 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: HomeScreen(),
     );
-
   }
 }
 
@@ -23,99 +21,98 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int counter=0;
+  int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-backgroundColor: Colors.black54,
-
-      appBar: AppBar(
-        title: Center(child: Text(
-          'My Counter App'
+        backgroundColor: Colors.black54,
+        appBar: AppBar(
+          title: Center(
+            child: Text('My Counter App'),
+          ),
         ),
-        ),
-      ),
-
-
-
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+
+            //CODE 01 FOR COUNT DOWN BUTTON
+
+            // FloatingActionButton(
+
+            //   child: Icon(Icons.add, color: Colors.red, size: 24),
+            //   onPressed: () {
+            //     counter--;
+            //     print('Counter value:$counter');
+            //     setState(() {});
+            //     SizedBox(
+            //       height: 10,
+            //     );
+            //   },
+            // ),
+
+            //CODE 02 FOR COUNT DOWN BUTTON
             FloatingActionButton(
-              child: Icon(Icons.add,color: Colors.red, size: 24),
-                onPressed: (){
+              onPressed: () {
+                setState(() {
                   counter--;
-                  print('Counter value:$counter');
-                  setState(() {});
-                  SizedBox(
-                      height: 10,
-                  );
-                },
-
-
+                });
+                print(counter);
+              },
+              child: Text(
+                '-',
+                style: TextStyle(
+                    //fontWeight: FontWeight.w900,
+                    color: Colors.black,
+                    fontSize: 45
+                ),
+              ),
             ),
+
+
+
 
             // another floating action button is created
 
-
             FloatingActionButton(
-              child: Icon(Icons.add,color: Colors.black,),
-              onPressed: (){
+
+              child: Icon(
+
+                Icons.add,
+                color: Colors.black,
+
+              ),
+
+              onPressed: () {
                 counter++;
                 print('Counter value:$counter');
-
 
                 setState(() {});
               },
 
-
             ),
           ],
-
         ),
-
-
-
-
-      body: Center(
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: [
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-                'You have pushed the button this many times:',
-              style: TextStyle(fontWeight: FontWeight.bold, color:Colors.pink, fontSize: 17),
+              'You have pushed the button this many times:',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.pink,
+                  fontSize: 17),
             ),
             Text(
               '$counter',
-              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold,color:Colors.yellow),
+              style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow),
             ),
-          ]
-
+          ]),
         ),
-
       ),
-    ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
